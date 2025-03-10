@@ -1,8 +1,9 @@
-<script lang="ts"></script>
+<script setup lang="ts">
+import PostList from '~/components/PostList.vue'
+</script>
 
 <template>
   <div>
-    <h1>Welcome to the Home Page</h1>
-    <p>This is the main entry point of the application.</p>
+    <PostList />
   </div>
 </template>
