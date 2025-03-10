@@ -1,3 +1,5 @@
 <script lang="ts"></script>
 
-<template></template>
+<template>
+  <div>This is PostCard.vue file.</div>
+</template>
