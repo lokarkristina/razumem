@@ -1,6 +1,5 @@
-import { ref } from 'vue'
-import type { Post } from '../types/Post'
-import API_URL from '../utils/constants'
+import type { Post } from '@/types/Post'
+import API_URL from '@/utils/constants'
 
 export function useFetchPosts() {
   const posts = ref<Post[] | null>(null)
@@ -28,7 +27,7 @@ export function useFetchPosts() {
 
   return {
     posts,
-    loading,
+    loading, // @todo add loading state
     error, // @todo add error handling
     fetchPosts,
   }
