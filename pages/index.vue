@@ -1,3 +1,9 @@
-<script lang="ts"></script>
+<script setup lang="ts">
+import PostList from '@/components/PostList.vue'
+</script>
 
-<template></template>
+<template>
+  <div>
+    <PostList />
+  </div>
+</template>
