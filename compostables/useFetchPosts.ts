@@ -1,8 +1,11 @@
 import type { Post } from '@/types/Post'
 import API_URL from '@/utils/constants'
 
-export function useFetchPosts() {
-  const posts = ref<Post[] | null>(null)
+// @todo maybe Nuxt compostable can be used instead?
+// https://nuxt.com/docs/api/composables/use-fetch
+
+export function useFetchPosts(id?: number) {
+  const posts: Ref<Post[]> = ref([])
   const loading = ref(true)
   const error = ref<Error | null>(null)
 
@@ -11,7 +14,8 @@ export function useFetchPosts() {
     error.value = null
 
     try {
-      const response = await fetch(`${API_URL}/posts`)
+      const url = id ? `${API_URL}/posts/${id}` : `${API_URL}/posts`
+      const response = await fetch(url)
       if (!response.ok) {
         throw new Error('Network response was not ok!')
       }
@@ -27,8 +31,7 @@ export function useFetchPosts() {
 
   return {
     posts,
-    loading, // @todo add loading state
-    error, // @todo add error handling
-    fetchPosts,
+    loading, // @todo handle loading
+    error, // @todo handle error
   }
 }

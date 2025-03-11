@@ -1,6 +1,9 @@
 import type { User } from '@/types/User'
 import API_URL from '@/utils/constants'
 
+// @todo maybe Nuxt compostable can be used instead?
+// https://nuxt.com/docs/api/composables/use-fetch
+
 export function useFetchUsers(id?: number) {
   const users: Ref<User[]> = ref([])
   const loading = ref(false)
@@ -28,8 +31,7 @@ export function useFetchUsers(id?: number) {
 
   return {
     users,
-    loading,
-    error,
-    fetchAuthor,
+    loading, // @todo handle loading
+    error, // @todo handle error
   }
 }

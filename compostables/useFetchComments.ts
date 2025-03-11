@@ -1,6 +1,9 @@
 import type { Comment } from '@/types/Comment'
 import API_URL from '@/utils/constants'
 
+// @todo maybe Nuxt compostable can be used instead?
+// https://nuxt.com/docs/api/composables/use-fetch
+
 export function useFetchComments(postId?: number) {
   const comments: Ref<Comment[]> = ref([])
   const loading = ref(false)
@@ -35,6 +38,5 @@ export function useFetchComments(postId?: number) {
     comments,
     loading, // @todo add loading state
     error, // @todo add error handling
-    fetchComments,
   }
 }
