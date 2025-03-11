@@ -8,6 +8,7 @@ import type { User } from '@/types/User'
 import type { Comment } from '@/types/Comment'
 import { formatTitle, formatSentences } from '@/utils/formatText'
 import { getRandomNumber } from '@/utils/randomNumber'
+import { getGradientColor } from '@/utils/getRandomColor'
 
 const route = useRoute()
 const post = ref<Post>({} as Post)
@@ -43,9 +44,22 @@ onMounted(() => {
 
 <template>
   <div class="post">
-    <h1 class="pb-5 mb-3 text-4xl border-b border-grey-100 text-primary">
-      {{ formatTitle(post.title) }}
-    </h1>
+    <!-- back button -->
+    <UButton
+      to="/"
+      label="Back"
+      variant="soft"
+      icon="i-heroicons-backward"
+      size="xs"
+    />
+
+    <div class="py-10 mt-4 rounded-md post-image" :style="getGradientColor()">
+      <h1
+        class="px-4 pt-5 pb-5 my-4 text-4xl font-bold bg-black/30 backdrop-blur-sm"
+      >
+        {{ formatTitle(post.title) }}
+      </h1>
+    </div>
 
     <!-- meta info - author, date -->
     <div
@@ -107,6 +121,18 @@ onMounted(() => {
           </div>
         </div>
         <div>{{ comment.body }}</div>
+
+        <!-- actions -->
+        <!-- @todo add functionality -->
+        <UButton
+          label="Reply"
+          trailing
+          variant="link"
+          color="teal"
+          size="2xs"
+          icon="i-heroicons-arrow-turn-down-left"
+          class="flex mt-2 ms-auto"
+        />
       </div>
     </div>
   </div>

@@ -3,6 +3,7 @@ import { useFetchComments } from '@/compostables/useFetchComments'
 import { useFetchUsers } from '@/compostables/useFetchUsers'
 import type { Post } from '@/types/Post'
 import { formatTitle, formatSentences } from '@/utils/formatText'
+import { getGradientColor } from '@/utils/getRandomColor'
 
 const props = defineProps<{
   post: Post
@@ -49,11 +50,7 @@ onMounted(() => {
       }"
     >
       <template #header>
-        <img
-          src="https://via.assets.so/album.png?id=1&q=95&w=400&h=400&fit=fill"
-          alt="Post image"
-          class="object-cover w-full h-32 rounded-t-lg"
-        />
+        <div class="h-32 post-image" :style="getGradientColor()" />
       </template>
 
       <!-- post author -->
@@ -74,9 +71,7 @@ onMounted(() => {
       <h3 class="mb-1 font-semibold text-lg/5 line-clamp-2 text-primary">
         {{ postTitle }}
       </h3>
-      <p class="text-gray-500 text-sm/6 line-clamp-3">
-        {{ postText }}
-      </p>
+      <p class="text-gray-500 text-sm/6 line-clamp-3" v-html="postText" />
 
       <template #footer>
         <div v-if="postComments" class="flex items-center gap-2">
@@ -91,3 +86,68 @@ onMounted(() => {
     </UCard>
   </ULink>
 </template>
+
+<style>
+/* used on other pages, placeholder for images */
+.post-image {
+  background-color: #e5e5f7;
+  opacity: 0.7;
+  background-image:
+    linear-gradient(
+      30deg,
+      var(--color-front) 12%,
+      transparent 12%,
+      transparent 88%,
+      var(--color-front) 88%,
+      var(--color-front)
+    ),
+    linear-gradient(
+      150deg,
+      var(--color-front) 12%,
+      transparent 12%,
+      transparent 88%,
+      var(--color-front) 88%,
+      var(--color-front)
+    ),
+    linear-gradient(
+      30deg,
+      var(--color-front) 12%,
+      transparent 12%,
+      transparent 88%,
+      var(--color-front) 88%,
+      var(--color-front)
+    ),
+    linear-gradient(
+      150deg,
+      var(--color-front) 12%,
+      transparent 12%,
+      transparent 88%,
+      var(--color-front) 88%,
+      var(--color-front)
+    ),
+    linear-gradient(
+      60deg,
+      var(--color-back) 25%,
+      transparent 25%,
+      transparent 75%,
+      var(--color-back) 75%,
+      var(--color-back)
+    ),
+    linear-gradient(
+      60deg,
+      var(--color-back) 25%,
+      transparent 25%,
+      transparent 75%,
+      var(--color-back) 75%,
+      var(--color-back)
+    );
+  background-size: 28px 49px;
+  background-position:
+    0 0,
+    0 0,
+    14px 25px,
+    14px 25px,
+    0 0,
+    14px 25px;
+}
+</style>
