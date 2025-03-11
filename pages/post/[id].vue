@@ -53,9 +53,12 @@ onMounted(() => {
       size="xs"
     />
 
-    <div class="py-10 mt-4 rounded-md post-image" :style="getGradientColor()">
+    <div
+      class="py-5 mt-4 rounded-md md:py-10 post-image"
+      :style="getGradientColor()"
+    >
       <h1
-        class="px-4 pt-5 pb-5 my-4 text-4xl font-bold bg-black/30 backdrop-blur-sm"
+        class="px-3 py-3 mx-3 my-4 text-3xl font-bold rounded-md md:text-4xl sm:mx-6 md:py-5 sm:px-5 bg-black/20 backdrop-blur-sm"
       >
         {{ formatTitle(post.title) }}
       </h1>
@@ -63,7 +66,7 @@ onMounted(() => {
 
     <!-- meta info - author, date -->
     <div
-      class="flex items-center gap-3 py-5 text-sm text-gray-500 border-b border-dashed align-center"
+      class="flex flex-col items-center gap-1 py-3 text-sm text-gray-500 border-b border-dashed md:gap-3 md:py-5 md:flex-row align-center"
     >
       <div v-if="postAuthor?.id" class="flex items-center gap-1">
         <UIcon
