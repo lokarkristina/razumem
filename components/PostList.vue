@@ -47,7 +47,7 @@ onMounted(() => {
 
 <template>
   <div class="post-list">
-    <h1 class="mb-10 text-3xl uppercase">Posts</h1>
+    <h1 class="mb-10 text-4xl uppercase">Posts</h1>
 
     <!-- the skeleton loading, @todo move to component -->
     <template v-if="waiting">

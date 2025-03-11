@@ -7,9 +7,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
   ],
   devtools: { enabled: true },
-  ui: {
-    global: true,
-  },
+  css: ['~/assets/css/main.css'],
   compatibilityDate: '2024-11-01',
   eslint: {
     config: {
