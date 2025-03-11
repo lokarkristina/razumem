@@ -47,7 +47,7 @@ onMounted(() => {
 
 <template>
   <div class="post-list">
-    <h1 class="mb-10 text-4xl uppercase">Posts</h1>
+    <h1 class="mb-10 font-[Figtree] text-5xl uppercase">Posts</h1>
 
     <!-- the skeleton loading, @todo move to component -->
     <template v-if="waiting">
@@ -64,7 +64,7 @@ onMounted(() => {
     <div v-else-if="postsList?.length">
       <!-- filters. -->
       <div class="max-w-xs mt-3 mb-10 post-list__filters">
-        <UFormGroup label="Filter by user ID" class="grid gap-1">
+        <UFormGroup label="Filter by user ID" class="grid gap-1 font-[Figtree]">
           <UInput
             v-model="searchUser"
             name="searchUser"
@@ -97,7 +97,7 @@ onMounted(() => {
 
       <ul
         v-if="filteredPosts.length > 0"
-        class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
+        class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
       >
         <li v-for="post in filteredPosts" :key="post.id">
           <PostCard :post="post" />

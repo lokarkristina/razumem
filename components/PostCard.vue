@@ -41,11 +41,11 @@ onMounted(() => {
         base: 'grid grid-rows-[auto_1fr_auto] h-full cursor-pointer ring-0 transition-[shadow_translate] hover:-translate-y-[8px] duration-250',
         round: 'rounded-md',
         shadow: 'shadow-lg hover:shadow-2xl',
-        header: { padding: 'sm:p-0' },
-        body: { padding: 'sm:p-1 md:p-3' },
+        header: { padding: 'sm:p-0 p-0' },
+        body: { padding: 'sm:p-2 md:p-3' },
         footer: {
           base: 'grid justify-end align-center mt-auto',
-          padding: 'sm:p-4',
+          padding: 'sm:p-2 md:p-4',
         },
       }"
     >
@@ -62,13 +62,15 @@ onMounted(() => {
           name="i-heroicons-user-circle"
           class="w-3 text-gray-400 aspect-square"
         />
-        <span class="text-gray-400 text-[0.625rem]">
+        <span class="text-gray-400 text-[0.625rem] font-[Quicksand]">
           {{ `${postAuthor} (id: ${props.post.userId})` }}
         </span>
       </div>
 
       <!-- post title and text -->
-      <h3 class="mb-1 font-semibold text-lg/5 line-clamp-2 text-primary">
+      <h3
+        class="mb-1 font-semibold text-lg/5 line-clamp-1 md:line-clamp-2 text-primary font-[Figtree]"
+      >
         {{ postTitle }}
       </h3>
       <p class="text-gray-500 text-sm/6 line-clamp-3" v-html="postText" />
