@@ -6,7 +6,7 @@ import PageFooter from './components/PageFooter.vue'
 <template>
   <PageHeader />
 
-  <main>
+  <main class="bg-white dark:bg-gray-800">
     <UContainer :ui="{ constrained: 'max-w-5xl', padding: 'py-8 md:py-20' }">
       <NuxtPage />
     </UContainer>

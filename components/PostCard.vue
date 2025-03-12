@@ -38,7 +38,7 @@ onMounted(() => {
   <ULink :to="`/post/${props.post.id}`" class="text-start">
     <UCard
       :ui="{
-        base: 'grid grid-rows-[auto_1fr_auto] h-full cursor-pointer ring-0 transition-[shadow_translate] hover:-translate-y-[8px] duration-250',
+        base: 'grid grid-rows-[auto_1fr_auto] h-full cursor-pointer ring-0 transition-[shadow_translate] hover:-translate-y-[8px] duration-250 overflow-hidden',
         round: 'rounded-md',
         shadow: 'shadow-lg hover:shadow-2xl',
         header: { padding: 'sm:p-0 p-0' },
@@ -56,13 +56,13 @@ onMounted(() => {
       <!-- post author -->
       <div
         v-if="postAuthor"
-        class="flex items-center gap-1 p-0 mb-2 text-gray-300 text-xs/1"
+        class="flex items-center gap-1 p-0 mb-2 text-xs/1"
       >
         <UIcon
           name="i-heroicons-user-circle"
-          class="w-3 text-gray-400 aspect-square"
+          class="w-3 text-gray-400 dark:text-white aspect-square"
         />
-        <span class="text-gray-400 text-[0.625rem] font-[Quicksand]">
+        <span class="text-gray-400 dark:text-gray-400 text-[0.625rem] font-[Quicksand]">
           {{ `${postAuthor} (id: ${props.post.userId})` }}
         </span>
       </div>
@@ -73,16 +73,16 @@ onMounted(() => {
       >
         {{ postTitle }}
       </h3>
-      <p class="text-gray-500 text-sm/6 line-clamp-3" v-html="postText" />
+      <p class="text-gray-500 dark:text-gray-200 text-sm/6 line-clamp-3" v-html="postText" />
 
       <template #footer>
         <div v-if="postComments" class="flex items-center gap-2">
           <!-- comments count -->
           <UIcon
             name="i-heroicons-chat-bubble-left-right"
-            class="w-5 text-gray-400 aspect-square"
+            class="w-5 text-gray-400 dark:text-gray-300 aspect-square"
           />
-          <span class="text-gray-400 text-sm/6">{{ postComments }}</span>
+          <span class="text-gray-400 dark:text-gray-300 text-sm/6">{{ postComments }}</span>
         </div>
       </template>
     </UCard>
@@ -151,5 +151,9 @@ onMounted(() => {
     14px 25px,
     0 0,
     14px 25px;
+
+    .dark & {
+      opacity: 0.95;
+    }
 }
 </style>

@@ -66,12 +66,12 @@ onMounted(() => {
 
     <!-- meta info - author, date -->
     <div
-      class="flex flex-col items-center gap-1 py-3 text-sm text-gray-500 border-b border-dashed md:gap-3 md:py-5 md:flex-row align-center"
+      class="flex flex-col items-center gap-1 py-3 text-sm border-b border-dashed md:gap-3 md:py-5 md:flex-row align-center"
     >
       <div v-if="postAuthor?.id" class="flex items-center gap-1">
         <UIcon
           name="i-heroicons-user-circle"
-          class="w-6 text-gray-500 aspect-square"
+          class="w-6 text-gray-500 dark:text-gray-200 aspect-square"
         />
         <span>
           {{ postAuthor.name }}
@@ -79,12 +79,12 @@ onMounted(() => {
       </div>
       <UIcon
         name="i-heroicons-sparkles-solid"
-        class="w-6 text-gray-800 aspect-square"
+        class="w-6 text-gray-800 dark:text-gray-200 aspect-square"
       />
       <div class="flex items-center gap-1">
         <UIcon
           name="i-heroicons-calendar"
-          class="w-6 text-gray-500 aspect-square"
+          class="w-6 text-gray-500 dark:text-gray-200 aspect-square"
         />
         <span>
           {{ new Date().toLocaleDateString() }}
@@ -106,7 +106,7 @@ onMounted(() => {
       <div
         v-for="comment in postComments"
         :key="comment.id"
-        class="p-4 rounded-lg bg-gray-50"
+        class="p-4 rounded-lg bg-gray-50 dark:bg-gray-900"
       >
         <div
           class="grid grid-rows-[auto_auto] grid-cols-[auto_1fr] gap-x-2 items-center mb-2 text-sm text-gray-500"
