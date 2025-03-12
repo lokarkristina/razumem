@@ -115,14 +115,15 @@ onMounted(() => {
             query: { page },
           })
         "
+        size="lg"
+        variant="ghost"
         :ui="{
           wrapper:
-            'flex justify-center mt-10 py-10 shadow-none border-t border-grey-200',
+            'flex justify-center mt-10 py-10 shadow-none border-t border-grey-200 ',
           base: 'shadow-none ring-0 px-4 py-2',
-          rounded: 'rounded-lg',
+          rounded: 'rounded-lg dark:rounded-xs',
           padding: 'px-4 py-2',
         }"
-        size="lg"
       />
 
       <!-- no posts available -->
